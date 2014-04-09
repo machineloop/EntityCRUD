@@ -1,0 +1,12 @@
+﻿@model EntityCRUD.Models.HomeIndexViewModel
+@{
+    //ViewBag.Title = "UpdateCustomer";
+}
+
+<h2>UpdateCustomer</h2>
+
+<form action="/Home/UpdateCustomer/@Model.Customers[0].Id" method="post">
+    <input type="text" name="Name" value="@Model.Customers[0].Name" /><br />
+    <input type="date" name="Birthday" value="@Model.Customers[0].Birthday" /><br />
+    <button type="submit">Update Customer</button>
+</form>
