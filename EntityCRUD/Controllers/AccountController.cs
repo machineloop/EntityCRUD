@@ -11,6 +11,8 @@ using Microsoft.Owin.Security;
 using Owin;
 using Microsoft.AspNet.Identity.Owin;
 using EntityCRUD.DataModels;
+using EntityCRUD.Models;
+using EntityCRUD.Data;
 
 namespace EntityCRUD.Controllers
 {

@@ -7,6 +7,8 @@ using Microsoft.Owin.Security.DataProtection;
 using Owin;
 using System;
 using EntityCRUD.Models;
+using EntityCRUD.Controllers;
+using EntityCRUD.DataModels;
 
 namespace EntityCRUD
 {
