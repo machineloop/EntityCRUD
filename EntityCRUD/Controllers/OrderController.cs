@@ -14,11 +14,23 @@ namespace EntityCRUD.Controllers
         ApplicationDbContext db = new ApplicationDbContext();
         OrderViewModel model = new OrderViewModel();
 
-        // GET: Order
         public ActionResult Index()
+        {
+            return View();
+        }
+
+
+        // GET: Order
+        public ActionResult ListOrder()
         {
             model.VMOrders = db.Orders.ToList();
             return View(model);
+        }
+
+        public ActionResult AjaxListOrder()
+        {
+            model.VMOrders = db.Orders.ToList();
+            return Json(model.VMOrders, JsonRequestBehavior.AllowGet);
         }
 
         // GET: Order

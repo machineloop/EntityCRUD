@@ -1,0 +1,14 @@
+﻿@model EntityCRUD.Models.OrderViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1>Orders!</h1>
+
+<table class="table table-bordered">
+    <tr><th>Id</th><th>Description</th><th>Total</th></tr>
+    @foreach (var order in Model.VMOrders)
+    {
+        <tr><td>@order.Id</td><td>@order.Description</td><td>@order.OrderTotal</td></tr>
+    }
+</table>
