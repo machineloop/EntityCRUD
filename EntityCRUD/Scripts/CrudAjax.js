@@ -26,5 +26,25 @@ myapp.pageLoad = function () {
 
     request.send();
 
-}
+};
 myapp.pageLoad();
+
+myapp.createOrder = function () {
+    "use strict";
+    var data, order, request;
+
+    order = { Description: 'A new description', OrderTotal: 5 }
+    request = new XMLHttpRequest();
+    request.open('POST', '/Order/AjaxAddOrder', true);
+    request.setRequestHeader("Content-Type", "application/json");
+    request.onload = function () {
+        if (this.status >= 200 && this.status < 400) {
+            data = JSON.parse(this.response);
+        } else {
+            console.log(this.response);
+        }
+    }
+    request.onerror = function () { alert("Your post didn't work."); };
+    request.send(JSON.stringify(order));
+
+};

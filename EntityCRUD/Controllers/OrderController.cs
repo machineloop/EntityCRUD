@@ -56,6 +56,24 @@ namespace EntityCRUD.Controllers
             ViewBag.SuccessMessage = "Congrats, you just added an order!";
             return View(model);
         }
+
+        [HttpPost]
+        public ActionResult AjaxAddOrder(string description, double ordertotal)
+        {
+            model.VMOrder = new Order();
+
+            model.VMOrder.OrderDate = DateTime.Now;
+            model.VMOrder.CustomerId = 1;
+
+            model.VMOrder.Description = description;
+            model.VMOrder.OrderTotal = ordertotal;
+
+            db.Orders.Add(model.VMOrder);
+            db.SaveChanges();
+
+            ViewBag.SuccessMessage = "Congrats, you just added an order!";
+            return Json(model, JsonRequestBehavior.AllowGet);
+        }
         [HttpGet]
         public ActionResult EditOrder(int id)
         {
