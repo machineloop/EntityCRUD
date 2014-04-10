@@ -1,0 +1,15 @@
+﻿@model EntityCRUD.Models.OrderViewModel
+@{
+    ViewBag.Title = "EditOrder";
+}
+
+<h2>EditOrder</h2>
+
+<form action="/Order/AddOrder" method="post">
+    <label>Order Description</label><input type="text" name="Description" value="@Model.VMOrder.Description" /><br />
+    <label>Order Total</label><input type="number" name="OrderTotal" value="@Model.VMOrder.OrderTotal" />
+    <button type="submit" class="btn btn-success">Edit Order</button>
+</form>
+
+@if (@ViewBag.SuccessMessage != null)
+{ <h3>@ViewBag.SuccessMessage </h3> }
